@@ -44,7 +44,7 @@ public class ManutencaoCircuito extends javax.swing.JDialog {
 
         jLabel3.setText("Sigla Pais");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alemanha", "austria", "hungria", "austria-hungria", "bósnia-herzegovina", "trinidad y tobago", "venezuela", "republica tcheca", "tchekoslovákia" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
