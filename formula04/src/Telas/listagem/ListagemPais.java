@@ -6,6 +6,10 @@
 package Telas.listagem;
 
 import Telas.manutencao.ManutencaoPais;
+import dao.PaisDao;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +23,7 @@ public class ListagemPais extends javax.swing.JDialog {
     public ListagemPais(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        atualizarTabela();
     }
 
     /**
@@ -32,16 +37,21 @@ public class ListagemPais extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Listagem de Países");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -52,8 +62,13 @@ public class ListagemPais extends javax.swing.JDialog {
                 "Sigla", "Nome"
             }
         ));
-        jTable1.setToolTipText("");
-        jScrollPane1.setViewportView(jTable1);
+        tabela.setToolTipText("");
+        tabela.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabelaKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabela);
 
         jButton1.setText("Novo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +116,17 @@ public class ListagemPais extends javax.swing.JDialog {
         manutencao.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_F5){
+            
+            atualizarTabela();
+        }
+    }//GEN-LAST:event_tabelaKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        
+    }//GEN-LAST:event_formKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -142,11 +168,21 @@ public class ListagemPais extends javax.swing.JDialog {
             }
         });
     }
+    public void atualizarTabela(){
+        DefaultTableModel modelo = new DefaultTableModel(); 
+        modelo.addColumn("Sigla");
+        modelo.addColumn("Nome");
+        List<String[]> resultados = PaisDao.consultar();
+        resultados.stream().forEach((linha) -> {
+            modelo.addRow(linha);
+        });
+        tabela.setModel(modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }
