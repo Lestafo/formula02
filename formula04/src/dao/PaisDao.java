@@ -50,7 +50,7 @@ public class PaisDao {
         }
     }
     public static void main(String[] args){
-        inserir("DU", "bananao");
+        //inserir("DU", "bananao");
         boolean resultado = inserir("PT", "MelhorPartido");
         if (resultado){
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
