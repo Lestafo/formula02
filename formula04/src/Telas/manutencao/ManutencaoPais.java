@@ -29,6 +29,8 @@ public class ManutencaoPais extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.listagem = listagem;
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
     }
 
     /**
@@ -45,10 +47,10 @@ public class ManutencaoPais extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jtfSigla = new javax.swing.JTextField();
         jtfNome = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        JotaBotaoAlterar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnAdicionar = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,23 +68,23 @@ public class ManutencaoPais extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Adicionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdicionar.setText("Adicionar");
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAdicionarActionPerformed(evt);
             }
         });
 
-        JotaBotaoAlterar.setText("Alterar");
-        JotaBotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+        btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JotaBotaoAlterarActionPerformed(evt);
+                btnAlterarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Excluir");
+        btnExcluir.setText("Excluir");
 
-        jButton4.setText("Cancelar");
+        btnFechar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,13 +103,13 @@ public class ManutencaoPais extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnAdicionar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JotaBotaoAlterar)
+                                .addComponent(btnAlterar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)
+                                .addComponent(btnExcluir)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4)
+                                .addComponent(btnFechar)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jtfNome))))
                 .addContainerGap())
@@ -131,10 +133,10 @@ public class ManutencaoPais extends javax.swing.JDialog {
                     .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(JotaBotaoAlterar)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnAdicionar)
+                    .addComponent(btnAlterar)
+                    .addComponent(btnExcluir)
+                    .addComponent(btnFechar))
                 .addContainerGap())
         );
 
@@ -145,23 +147,23 @@ public class ManutencaoPais extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfNomeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         boolean resultado = inserir(jtfSigla.getText(), jtfNome.getText());
         if (resultado) {
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
         } else {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAdicionarActionPerformed
 
-    private void JotaBotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JotaBotaoAlterarActionPerformed
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         boolean resultado = alterar(jtfSigla.getText(), jtfNome.getText());
         if (resultado) {
             JOptionPane.showMessageDialog(null, "ALTERADO com sucesso!");
         } else {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
-    }//GEN-LAST:event_JotaBotaoAlterarActionPerformed
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,10 +211,10 @@ public class ManutencaoPais extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JotaBotaoAlterar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnAdicionar;
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnFechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jtfNome;
