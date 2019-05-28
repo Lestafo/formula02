@@ -5,7 +5,8 @@
  */
 package Telas.manutencao;
 
-import static dao.PaisDao.inserir;
+import Telas.listagem.ListagemPais;
+import static dao.PaisDao.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,12 +15,20 @@ import javax.swing.JOptionPane;
  */
 public class ManutencaoPais extends javax.swing.JDialog {
 
+    private ListagemPais listagem;
+
     /**
      * Creates new form ManutencaoPais
      */
     public ManutencaoPais(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    public ManutencaoPais(java.awt.Frame parent, boolean modal, ListagemPais listagem) {
+        super(parent, modal);
+        initComponents();
+        this.listagem = listagem;
     }
 
     /**
@@ -37,7 +46,7 @@ public class ManutencaoPais extends javax.swing.JDialog {
         jtfSigla = new javax.swing.JTextField();
         jtfNome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jotaBotao = new javax.swing.JButton();
+        JotaBotaoAlterar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -64,10 +73,10 @@ public class ManutencaoPais extends javax.swing.JDialog {
             }
         });
 
-        jotaBotao.setText("Alterar");
-        jotaBotao.addActionListener(new java.awt.event.ActionListener() {
+        JotaBotaoAlterar.setText("Alterar");
+        JotaBotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jotaBotaoActionPerformed(evt);
+                JotaBotaoAlterarActionPerformed(evt);
             }
         });
 
@@ -80,22 +89,21 @@ public class ManutencaoPais extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
                         .addComponent(jtfSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jotaBotao)
+                                .addComponent(JotaBotaoAlterar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -124,7 +132,7 @@ public class ManutencaoPais extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jotaBotao)
+                    .addComponent(JotaBotaoAlterar)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
                 .addContainerGap())
@@ -139,16 +147,21 @@ public class ManutencaoPais extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean resultado = inserir(jtfSigla.getText(), jtfNome.getText());
-        if (resultado){
+        if (resultado) {
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jotaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jotaBotaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jotaBotaoActionPerformed
+    private void JotaBotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JotaBotaoAlterarActionPerformed
+        boolean resultado = alterar(jtfSigla.getText(), jtfNome.getText());
+        if (resultado) {
+            JOptionPane.showMessageDialog(null, "ALTERADO com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+    }//GEN-LAST:event_JotaBotaoAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,17 +201,20 @@ public class ManutencaoPais extends javax.swing.JDialog {
                     }
                 });
                 dialog.setVisible(true);
+
             }
+
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JotaBotaoAlterar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton jotaBotao;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfSigla;
     private java.awt.Label label1;

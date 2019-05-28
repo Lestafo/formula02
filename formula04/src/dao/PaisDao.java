@@ -27,6 +27,21 @@ public class PaisDao {
             return false;
         }
     }
+    
+    public static boolean alterar(String sigla, String nome){
+        String sql = "UPDATE pais SET nome = ? WHERE sigla = ?";
+        try{
+        PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+        ps.setString(2,sigla);
+        ps.setString(1, nome);
+        ps.executeUpdate();
+        return true;
+        } catch(SQLException | ClassNotFoundException ex){
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+    
     public static boolean excluir(String sigla, String nome){
         return true;
     }
@@ -51,9 +66,15 @@ public class PaisDao {
     }
     public static void main(String[] args){
         //inserir("DU", "bananao");
-        boolean resultado = inserir("PT", "MelhorPartido");
-        if (resultado){
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+        //boolean resultado = inserir("PT", "MelhorPartido");
+        //if (resultado){
+        //    JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+        //}else{
+        //    JOptionPane.showMessageDialog(null, "Erro!");
+        //}
+        boolean resultadoalt = alterar("BR", "aoo");
+        if (resultadoalt){
+            JOptionPane.showMessageDialog(null, "alterado!");
         }else{
             JOptionPane.showMessageDialog(null, "Erro!");
         }
