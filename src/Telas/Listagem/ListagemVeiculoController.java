@@ -24,7 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ListagemVeiculoController implements Initializable {
 
     @FXML
-    private TableView tabela;
+    private TableView<Telas.modelo.Veiculo> tabela;
     @FXML
     private TableColumn modelo;
     @FXML
@@ -33,6 +33,12 @@ public class ListagemVeiculoController implements Initializable {
     private TableColumn placa;
     @FXML
     private TableColumn cliente;
+    
+    @FXML
+    public void excluir(){
+        VeiculoDAO.excluir((tabela.getSelectionModel().getSelectedItem().getCod()));
+        System.out.println("mininim");
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         modelo.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Modelo"));
@@ -41,6 +47,7 @@ public class ListagemVeiculoController implements Initializable {
         cliente.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Clientenome"));
         System.out.println("ababababa");
         tabela.getItems().addAll(VeiculoDAO.consultar());
+        
     }    
     
 }

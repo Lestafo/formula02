@@ -59,11 +59,11 @@ public class VeiculoDAO {
         }
     }
 
-      public static boolean excluir(String sigla) {
+      public static boolean excluir(int sigla) {
         String sql = "DELETE FROM veiculo WHERE codigo = ?";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
-            ps.setString(1, sigla);
+            ps.setInt(1, sigla);
             ps.executeUpdate();
             return true;
         } catch (SQLException | ClassNotFoundException ex) {

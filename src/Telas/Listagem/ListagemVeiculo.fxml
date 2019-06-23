@@ -32,7 +32,7 @@
                   <Insets left="-15.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="50.0" text="Excluir">
+            <Button mnemonicParsing="false" onAction="#excluir" prefHeight="58.0" prefWidth="50.0" text="Excluir">
                <HBox.margin>
                   <Insets top="15.0" />
                </HBox.margin>

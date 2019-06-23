@@ -6,10 +6,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Telas.Listagem.ListagemClienteController">
    <children>
-      <TableView fx:id="Tabela" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="384.0" VBox.vgrow="ALWAYS">
+      <TableView fx:id="Tabela" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#habilitarBotao" prefHeight="354.0" prefWidth="384.0" VBox.vgrow="ALWAYS">
         <columns>
           <TableColumn fx:id="Nome" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="105.0" text="Nome" />
           <TableColumn fx:id="Telefone" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="83.0" text="Telefone" />
@@ -28,7 +27,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="85.0" prefWidth="374.0" text="Alterar" VBox.vgrow="ALWAYS">
+      <Button fx:id="btnAlterar" alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="85.0" prefWidth="374.0" text="Alterar" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
@@ -36,7 +35,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="369.0" text="Excluir" VBox.vgrow="ALWAYS">
+      <Button fx:id="btnExcluir" alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#excluir" prefHeight="44.0" prefWidth="369.0" text="Excluir" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>

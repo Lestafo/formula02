@@ -76,7 +76,9 @@ public class Veiculo {
     public void setTipo(String tipo) {
         this.tipo = new SimpleStringProperty(tipo);
     }
-    
+    public int getCod(){
+        return cod;
+    }
     @Override
     public String toString(){
         return this.placa.get();

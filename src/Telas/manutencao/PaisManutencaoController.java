@@ -44,10 +44,10 @@ public class PaisManutencaoController implements Initializable {
     @FXML
     private void adicionar(){
         System.out.println(cidadeField.getValue().getCod());
-        //dao.ClienteDao.inserir(nomeField.getText(), enderecoField.getText(), Integer.parseInt(telefoneField.getText()));
+        dao.ClienteDao.inserir(nomeField.getText(), enderecoField.getText(),(cidadeField.getValue().getCod()), Integer.parseInt(telefoneField.getText()));
         //System.out.println(Long.parseLong(telefoneField.getText()));
     }
-    ObservableList<String> list = FXCollections.observableArrayList("marcao","iniolavo'");
+    
     
     
     @Override

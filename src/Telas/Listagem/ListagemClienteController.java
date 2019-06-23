@@ -15,6 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,7 +32,7 @@ public class ListagemClienteController implements Initializable {
      */
     
     @FXML
-    private TableView Tabela;
+    private TableView<Telas.modelo.Pessoa> Tabela;
     @FXML
     private TableColumn Nome;
     @FXML
@@ -40,8 +41,22 @@ public class ListagemClienteController implements Initializable {
     private TableColumn Endereco;
     @FXML
     private TableColumn Telefone;
+    @FXML
+    private Button btnExcluir;
+    @FXML
+    private Button btnAlterar;
+    @FXML
+    public void habilitarBotao(){
+        if(Tabela.getSelectionModel().getSelectedItem() != null){
+            btnExcluir.setDisable(false);
+            btnAlterar.setDisable(false);
             
-            
+        }
+    }
+    @FXML
+    public void excluir(){
+        dao.ClienteDao.excluir(Tabela.getSelectionModel().getSelectedItem().getCod());
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
