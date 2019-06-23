@@ -18,7 +18,7 @@ public class Pessoa {
     private SimpleIntegerProperty cod;
     private SimpleStringProperty nome;
     private SimpleStringProperty endereco;
-    private SimpleIntegerProperty cidade;
+    private Cidade cidade;
     private SimpleLongProperty telefone;
 
     public int getCod() {
@@ -34,28 +34,32 @@ public class Pessoa {
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
     }
-    public Pessoa(String nome, String endereco, int cidade){
+    public Pessoa(String nome, String endereco, Cidade cidade){
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
-        this.cidade = new SimpleIntegerProperty(cidade);
+        this.cidade = cidade;
     }
     public Pessoa(String nome, String endereco, Long telefone){
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
         this.telefone = new SimpleLongProperty(telefone);
     }
-    public Pessoa(String nome, String endereco, Long telefone, int cidade){
+    public Pessoa(String nome, String endereco, Long telefone, Cidade cidade){
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
         this.telefone = new SimpleLongProperty(telefone);
-        this.cidade = new SimpleIntegerProperty(cidade);
+        this.cidade = cidade;
     }
-        public Pessoa(int cod,String nome, String endereco, Long telefone, int cidade){
+        public Pessoa(int cod,String nome, String endereco, Long telefone, Cidade cidade){
         this.cod = new SimpleIntegerProperty(cod);
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
         this.telefone = new SimpleLongProperty(telefone);
-        this.cidade = new SimpleIntegerProperty(cidade);
+        this.cidade = cidade;
+    }
+    
+    public String getCidadeNome(){
+        return cidade.getNome();
     }
 
     public String getEndereco() {
@@ -66,12 +70,12 @@ public class Pessoa {
         this.endereco.set(endereco);
     }
 
-    public int getCidade() {
-        return cidade.get();
+    public Cidade getCidade() {
+        return cidade;
     }
 
-    public void setCidade(int cidade) {
-        this.cidade.set(cidade);
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
     public long getTelefone() {
@@ -91,7 +95,11 @@ public class Pessoa {
     public void setNome(String nome) {
         this.nome.set(nome);
     }
-
+    
+    @Override
+    public String toString(){
+        return this.nome.get();
+    }
 
 
     

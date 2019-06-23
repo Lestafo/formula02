@@ -80,7 +80,7 @@ public class ClienteDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 
-                resultados.add(new Pessoa(rs.getInt("numCadastro"),rs.getString("nome"), rs.getString("endereco"),rs.getLong("telefone"),rs.getInt("cidade")));
+                resultados.add(new Pessoa(rs.getInt("numCadastro"),rs.getString("nome"), rs.getString("endereco"),rs.getLong("telefone"),CidadeDAO.consultar(rs.getInt("cidade"))));
             }
             return resultados;
         } catch (SQLException | ClassNotFoundException ex) {

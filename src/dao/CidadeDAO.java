@@ -55,4 +55,46 @@ public class CidadeDAO {
             return null;
         }
     }
+    public static Cidade consultar(int pk) {
+        Cidade ne = null;
+        String sql = "SELECT codigo, nome FROM cidade WHERE codigo=?";
+        PreparedStatement ps;
+        try {
+            ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, pk);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ne = new Cidade(pk,rs.getString("nome"));
+                
+            }
+            return ne;
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+        public static boolean alterar(int cod, String nome) {
+        String sql = "UPDATE cidade SET nome = ? WHERE codigo = ?";
+        try {
+            PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setString(1, nome);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+        public static boolean excluir(int cod) {
+        String sql = "DELETE FROM cidade WHERE codigo = ?";
+        try {
+            PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, cod);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
 }

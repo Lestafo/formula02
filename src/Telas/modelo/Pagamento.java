@@ -68,6 +68,9 @@ public class Pagamento {
     public void setOrdemCod(OrdemServiço ordemCod) {
         this.ordemCod = ordemCod;
     }
-    
+    @Override
+    public String toString(){
+        return Integer.toString(this.getCod());
+    }
     
 }

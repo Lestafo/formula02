@@ -51,9 +51,7 @@ public class Veiculo {
         this.modelo = new SimpleStringProperty(modelo);
     }
     
-    public String getClienteNome(){
-        return this.cliente.getNome();
-    }
+    
 
     public Pessoa getCliente() {
         return cliente;
@@ -78,8 +76,11 @@ public class Veiculo {
     public void setTipo(String tipo) {
         this.tipo = new SimpleStringProperty(tipo);
     }
-
     
+    @Override
+    public String toString(){
+        return this.placa.get();
+    }
     
     
 }

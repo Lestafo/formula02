@@ -5,11 +5,15 @@
  */
 package Telas.manutencao;
 
+import Telas.modelo.Cidade;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 /**
@@ -35,15 +39,20 @@ public class PaisManutencaoController implements Initializable {
     private TextField telefoneField;
     
     @FXML
-    private TextField cidadeField;
+    private ComboBox<Cidade> cidadeField;
     
     @FXML
     private void adicionar(){
-        dao.ClienteDao.inserir(nomeField.getText(), enderecoField.getText(), Integer.parseInt(telefoneField.getText()), Integer.parseInt(cidadeField.getText()));
-        System.out.println(Long.parseLong(telefoneField.getText()));
+        System.out.println(cidadeField.getValue().getCod());
+        //dao.ClienteDao.inserir(nomeField.getText(), enderecoField.getText(), Integer.parseInt(telefoneField.getText()));
+        //System.out.println(Long.parseLong(telefoneField.getText()));
     }
+    ObservableList<String> list = FXCollections.observableArrayList("marcao","iniolavo'");
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cidadeField.getItems().addAll(dao.CidadeDAO.consultar());
         
     }    
     

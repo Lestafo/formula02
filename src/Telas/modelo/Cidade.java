@@ -37,7 +37,10 @@ public class Cidade {
         this.nome.set(nome);
     }
     
-    
+    @Override
+    public String toString(){
+        return this.nome.get();
+    }
     
     
 }

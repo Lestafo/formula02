@@ -42,7 +42,9 @@ public class OrdemServiço {
         this.observacao = new SimpleStringProperty(observacao);
         this.veiculo = veiculo;
     }
-
+    public String getVeiPlaca(){
+        return this.veiculo.getPlaca();
+    }
     public int getCod() {
         return cod.get();
     }
@@ -101,7 +103,10 @@ public class OrdemServiço {
         this.observacao.set(observacao);
     }
     
-    
+    @Override
+    public String toString(){
+        return Integer.toString(this.getCod());
+    }
     
     
 }

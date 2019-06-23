@@ -54,7 +54,7 @@ public class FXMLDocumentController implements Initializable {
     private void adicionarCliente(ActionEvent ev){
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/CidadeManutencao.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/PaisManutencao.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);

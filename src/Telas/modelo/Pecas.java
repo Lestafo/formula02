@@ -48,6 +48,8 @@ public class Pecas {
     public void setNome(String nome) {
         this.nome.set(nome);
     }
-    
-    
+    @Override
+    public String toString(){
+        return this.nome.get();
+    }
 }
