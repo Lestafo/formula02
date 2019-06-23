@@ -6,6 +6,7 @@
 package dao;
 
 import Telas.modelo.Pessoa;
+import Telas.modelo.Veiculo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,22 +18,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 /**
  *
- * @author Administrador
+ * @author Lest
  */
-public class ClienteDao {
-
-    public static boolean inserir(String nome, String endereco,int cidade, long telegone) {
-        String sql = "INSERT INTO cliente (nome, endereco, telefone, cidade) VALUES ( ?, ?, ?, ?)";
+public class VeiculoDAO {
+    public static boolean inserir(String modelo, String tipo, String placa, Telas.modelo.Pessoa cliente) {
+        String sql = "INSERT INTO veiculo (modelo,tipo,placa,cliente_num) VALUES ( ?, ?, ?, ?)";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
-            //ps.setInt(1, codigo);
-            ps.setString(1, nome);
-            ps.setString(2, endereco);
-            ps.setInt(4, cidade);
-            ps.setInt(3, (int) telegone);
+            ps.setString(1, modelo);
+            ps.setString(2, tipo);
+            ps.setString(3, placa);
+            ps.setInt(4, cliente.getCod());
             System.out.println("'asasas'''asfoaoe");
             ps.executeUpdate();
             ps.close();
@@ -44,12 +42,15 @@ public class ClienteDao {
         }
     }
     
-    public static boolean alterarNome(int cod, String nome) {
-        String sql = "UPDATE cliente SET nome = ? WHERE numCadastro = ?";
+    public static boolean alterar(String modelo, String placa, String tipo, int num, int codigo) {
+        String sql = "UPDATE veiculo SET modelo = ?, SET placa = ?, SET tipo = ?, set cliente_num = ? WHERE codigo = ?";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
-            ps.setString(1, nome);
-            ps.setInt(2, cod);
+            ps.setString(1, modelo);
+            ps.setString(2, placa);
+            ps.setString(3,tipo);
+            ps.setInt(4, num);
+            ps.setInt(5, codigo);
             ps.executeUpdate();
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
@@ -58,11 +59,11 @@ public class ClienteDao {
         }
     }
 
-      public static boolean excluir(int cod) {
-        String sql = "DELETE FROM cliente WHERE numCadastro = ?";
+      public static boolean excluir(String sigla) {
+        String sql = "DELETE FROM veiculo WHERE codigo = ?";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
-            ps.setInt(1, cod);
+            ps.setString(1, sigla);
             ps.executeUpdate();
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
@@ -71,35 +72,34 @@ public class ClienteDao {
         }
     }
     
-    public static List<Pessoa> consultar() {
-        List<Pessoa> resultados = new ArrayList<>();
-        String sql = "SELECT nome, endereco, telefone, cidade FROM cliente";
+    public static List<Veiculo> consultar() {
+        List<Veiculo> resultados = new ArrayList<>();
+        String sql = "SELECT modelo, tipo, placa,codigo, cliente_num FROM veiculo";
         PreparedStatement ps;
         try {
             ps = conexao.Conexao.getConexao().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 
-                resultados.add(new Pessoa(rs.getString("nome"), rs.getString("endereco"),rs.getLong("telefone"),rs.getInt("cidade")));
+                resultados.add(new Veiculo(rs.getString("modelo"),rs.getInt("codigo"), ClienteDao.consultar(rs.getInt("cliente_num")),rs.getString("placa"),rs.getString("tipo")));
             }
             return resultados;
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
     
-    public static Pessoa consultar(int pk) {
-        Pessoa ne = null;
-        String sql = "SELECT numCadastro, nome, endereco FROM cliente WHERE numCadastro=?";
+    public static Veiculo consultar(String pk) {
+        Veiculo ne = null;
+        String sql = "SELECT modelo, tipo,placa,codigo,cliente_num FROM pais WHERE sigla=?";
         PreparedStatement ps;
         try {
             ps = conexao.Conexao.getConexao().prepareStatement(sql);
-            ps.setInt(1, pk);
+            ps.setString(1, pk);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                ne = new Pessoa(rs.getInt("numCadastro"), rs.getString("nome"), rs.getString("endereco"));
-                
+                ne = new Veiculo(rs.getString("modelo"), rs.getInt("codigo"),ClienteDao.consultar(rs.getInt("cliente_num")) ,rs.getString("placa"),rs.getString("tipo"));
             }
             return ne;
         } catch (SQLException | ClassNotFoundException ex) {
@@ -118,3 +118,4 @@ public class ClienteDao {
         //inserir(123,"asi","nasas",334,1);
     }
 }
+

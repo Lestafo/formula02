@@ -12,21 +12,35 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Lest
  */
 public class Veiculo {
-    private static int codAtual;
+
     private int cod;
     private SimpleStringProperty modelo;
     private Pessoa cliente;
     private SimpleStringProperty placa;
     private SimpleStringProperty tipo;
 
-    public Veiculo(SimpleStringProperty modelo, Pessoa cliente, SimpleStringProperty placa, SimpleStringProperty tipo) {
-        cod = codAtual;
-        codAtual++;
-        this.modelo = modelo;
+//    public Veiculo(String modelo, Pessoa cliente, String placa, String tipo) {
+//
+//        this.modelo = new SimpleStringProperty(modelo);
+//        this.cliente = cliente;
+//        this.placa = new SimpleStringProperty(placa);
+//        this.tipo = new SimpleStringProperty(tipo);
+//    } n é usado
+    
+    public Veiculo(String modelo,int cod, Pessoa cliente, String placa, String tipo) {
+        this.cod = cod;
+        this.modelo = new SimpleStringProperty(modelo);
         this.cliente = cliente;
-        this.placa = placa;
-        this.tipo = tipo;
+        this.placa = new SimpleStringProperty(placa);
+        this.tipo = new SimpleStringProperty(tipo);
     }
+
+    public Veiculo() {
+       }
+
+   public String getClientenome(){
+       return cliente.getNome();
+   }
     
     
     public String getModelo() {

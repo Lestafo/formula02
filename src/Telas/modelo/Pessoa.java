@@ -15,36 +15,43 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Lest
  */
 public class Pessoa {
-    public static int codAtual = 0;
-    private int cod;
+    private SimpleIntegerProperty cod;
     private SimpleStringProperty nome;
     private SimpleStringProperty endereco;
     private SimpleIntegerProperty cidade;
     private SimpleLongProperty telefone;
 
+    public int getCod() {
+        return cod.get();
+    }
+
     public Pessoa(String nome, String endereco) {
-        cod = codAtual;
-        codAtual++;
+        this.nome = new SimpleStringProperty(nome);
+        this.endereco = new SimpleStringProperty(endereco);
+    }
+    public Pessoa(int cod,String nome, String endereco) {
+        this.cod = new SimpleIntegerProperty(cod);
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
     }
     public Pessoa(String nome, String endereco, int cidade){
-        cod = codAtual;
-        codAtual++;
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
         this.cidade = new SimpleIntegerProperty(cidade);
     }
     public Pessoa(String nome, String endereco, Long telefone){
-        cod = codAtual;
-        codAtual++;
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
         this.telefone = new SimpleLongProperty(telefone);
     }
     public Pessoa(String nome, String endereco, Long telefone, int cidade){
-        cod = codAtual;
-        codAtual++;
+        this.nome = new SimpleStringProperty(nome);
+        this.endereco = new SimpleStringProperty(endereco);
+        this.telefone = new SimpleLongProperty(telefone);
+        this.cidade = new SimpleIntegerProperty(cidade);
+    }
+        public Pessoa(int cod,String nome, String endereco, Long telefone, int cidade){
+        this.cod = new SimpleIntegerProperty(cod);
         this.nome = new SimpleStringProperty(nome);
         this.endereco = new SimpleStringProperty(endereco);
         this.telefone = new SimpleLongProperty(telefone);
@@ -85,9 +92,7 @@ public class Pessoa {
         this.nome.set(nome);
     }
 
-    public static int getCodAtual() {
-        return codAtual;
-    }
+
 
     
     

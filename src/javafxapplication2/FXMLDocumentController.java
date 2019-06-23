@@ -68,7 +68,25 @@ public class FXMLDocumentController implements Initializable {
         
         }
     }
-    
+    @FXML
+    private void adicionarVeiculo(){
+        try {
+            System.out.println("manda ele tomanocu");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemVeiculo.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar Veículo");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //        TableColumn nome = new TableColumn("Nome");

@@ -39,7 +39,7 @@ public class PaisManutencaoController implements Initializable {
     
     @FXML
     private void adicionar(){
-        dao.ClienteDao.inserir(Telas.modelo.Pessoa.getCodAtual(), nomeField.getText(), enderecoField.getText(), Integer.parseInt(telefoneField.getText()), Integer.parseInt(cidadeField.getText()));
+        dao.ClienteDao.inserir(nomeField.getText(), enderecoField.getText(), Integer.parseInt(telefoneField.getText()), Integer.parseInt(cidadeField.getText()));
         System.out.println(Long.parseLong(telefoneField.getText()));
     }
     @Override
