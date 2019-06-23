@@ -16,8 +16,8 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Lest
  */
 public class OrdemServiço {
-    private static int codAtual;
-    private final int cod;
+    
+    private SimpleIntegerProperty cod;
     private SimpleBooleanProperty isPago;
     private SimpleDoubleProperty valor;
     private SimpleStringProperty progresso;
@@ -26,16 +26,14 @@ public class OrdemServiço {
     private SimpleStringProperty observacao;
     private final Veiculo veiculo;
 
-    public OrdemServiço(boolean isPago, Veiculo veiculo) {
-        cod = codAtual;
-        codAtual++;
+    public OrdemServiço(int cod,boolean isPago, Veiculo veiculo) {
+        this.cod = new SimpleIntegerProperty(cod);
         this.isPago = new SimpleBooleanProperty(isPago);
         this.veiculo = veiculo;
     }
 
-    public OrdemServiço(boolean isPago, double valor, String progresso, String dataFx, String situacao, String observacao, Veiculo veiculo) {
-        cod = codAtual;
-        codAtual++;
+    public OrdemServiço(int cod,boolean isPago, double valor, String progresso, String dataFx, String situacao, String observacao, Veiculo veiculo) {
+        this.cod = new SimpleIntegerProperty(cod);
         this.isPago = new SimpleBooleanProperty(isPago);
         this.valor = new SimpleDoubleProperty(valor);
         this.progresso = new SimpleStringProperty(progresso);
@@ -45,6 +43,16 @@ public class OrdemServiço {
         this.veiculo = veiculo;
     }
 
+    public int getCod() {
+        return cod.get();
+    }
+
+    public void setCod(int cod) {
+        this.cod.set(cod);
+    }
+    
+    
+    
     public boolean getIsPago() {
         return isPago.get();
     }

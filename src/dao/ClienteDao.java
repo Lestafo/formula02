@@ -44,7 +44,7 @@ public class ClienteDao {
         }
     }
     
-    public static boolean alterarNome(int cod, String nome) {
+    public static boolean alterar(int cod, String nome) {
         String sql = "UPDATE cliente SET nome = ?, endereco = ?,telefone = ?, cidade = ? WHERE numCadastro = ?";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
@@ -73,14 +73,14 @@ public class ClienteDao {
     
     public static List<Pessoa> consultar() {
         List<Pessoa> resultados = new ArrayList<>();
-        String sql = "SELECT nome, endereco, telefone, cidade FROM cliente";
+        String sql = "SELECT numCadastro, nome, endereco, telefone, cidade FROM cliente";
         PreparedStatement ps;
         try {
             ps = conexao.Conexao.getConexao().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 
-                resultados.add(new Pessoa(rs.getString("nome"), rs.getString("endereco"),rs.getLong("telefone"),rs.getInt("cidade")));
+                resultados.add(new Pessoa(rs.getInt("numCadastro"),rs.getString("nome"), rs.getString("endereco"),rs.getLong("telefone"),rs.getInt("cidade")));
             }
             return resultados;
         } catch (SQLException | ClassNotFoundException ex) {

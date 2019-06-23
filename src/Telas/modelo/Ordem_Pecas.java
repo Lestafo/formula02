@@ -24,7 +24,7 @@ public class Ordem_Pecas {
         this.quantidade = new SimpleIntegerProperty(quantidade);
         this.valor = new SimpleDoubleProperty(valor);
     }
-
+    
     public OrdemServiço getOrdem() {
         return ordem;
     }

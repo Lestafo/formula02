@@ -6,6 +6,7 @@
 package Telas.modelo;
 
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -13,18 +14,25 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Lest
  */
 public class Pecas {
-    private static int codAtual;
-    private final int cod;
+    private SimpleIntegerProperty cod;
     private SimpleDoubleProperty valor;
     private SimpleStringProperty nome;
 
-    public Pecas(double valor, String nome) {
-        cod = codAtual;
-        codAtual++;
+    public Pecas(int cod,double valor, String nome) {
+        this.cod = new SimpleIntegerProperty(cod);
         this.valor = new SimpleDoubleProperty(valor);
         this.nome = new SimpleStringProperty(nome);
     }
 
+    public int getCod() {
+        return cod.get();
+    }
+
+    public void setCod(int cod) {
+        this.cod.set(cod);
+    }
+
+    
     public double getValor() {
         return valor.get();
     }

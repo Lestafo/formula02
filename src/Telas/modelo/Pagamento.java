@@ -6,6 +6,7 @@
 package Telas.modelo;
 
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -13,21 +14,28 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Lest
  */
 public class Pagamento {
-    private static int codAtual;
-    private final int cod;
+    private SimpleIntegerProperty cod;
     private SimpleStringProperty datapag;
     private SimpleStringProperty dataVenc;
     private SimpleDoubleProperty valor;
     private OrdemServiço ordemCod;
 
-    public Pagamento(String datapag, String dataVenc, double valor, OrdemServiço ordemCod) {
-        cod = codAtual;
-        codAtual++;
+    public Pagamento(int cod,String datapag, String dataVenc, double valor, OrdemServiço ordemCod) {
+        this.cod = new SimpleIntegerProperty(cod);
         this.datapag = new SimpleStringProperty(datapag);
         this.dataVenc = new SimpleStringProperty(dataVenc);
         this.valor = new SimpleDoubleProperty(valor);
         this.ordemCod = ordemCod;
     }
+
+    public int getCod() {
+        return cod.get();
+    }
+
+    public void setCod(int cod) {
+        this.cod.set(cod);
+    }
+    
 
     public String getDatapag() {
         return datapag.get();
