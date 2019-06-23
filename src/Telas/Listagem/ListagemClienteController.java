@@ -6,7 +6,7 @@
 package Telas.Listagem;
 
 import Telas.modelo.Pessoa;
-import dao.ClienteDao;
+import dao.ClienteDAO;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +55,11 @@ public class ListagemClienteController implements Initializable {
     }
     @FXML
     public void excluir(){
-        dao.ClienteDao.excluir(Tabela.getSelectionModel().getSelectedItem().getCod());
+        ClienteDAO.excluir(Tabela.getSelectionModel().getSelectedItem().getCod());
+    }
+    @FXML
+    public void alterar(){
+        System.out.println("oi");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -70,7 +74,7 @@ public class ListagemClienteController implements Initializable {
         Telefone.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Telefone"));
         Cidade.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Cidade"));
         
-            Tabela.getItems().addAll(ClienteDao.consultar());
+            Tabela.getItems().addAll(ClienteDAO.consultar());
 }    
     
 }

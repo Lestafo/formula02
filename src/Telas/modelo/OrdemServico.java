@@ -15,26 +15,26 @@ import javafx.beans.property.SimpleStringProperty;
  *
  * @author Lest
  */
-public class OrdemServiço {
+public class OrdemServico {
     
     private SimpleIntegerProperty cod;
-    private SimpleBooleanProperty isPago;
+    private SimpleStringProperty isPago;
     private SimpleDoubleProperty valor;
     private SimpleStringProperty progresso;
     private SimpleStringProperty dataFx;
     private SimpleStringProperty situacao;
     private SimpleStringProperty observacao;
-    private final Veiculo veiculo;
+    private Veiculo veiculo;
 
-    public OrdemServiço(int cod,boolean isPago, Veiculo veiculo) {
+    public OrdemServico(int cod,String isPago, Veiculo veiculo) {
         this.cod = new SimpleIntegerProperty(cod);
-        this.isPago = new SimpleBooleanProperty(isPago);
+        this.isPago = new SimpleStringProperty(isPago);
         this.veiculo = veiculo;
     }
 
-    public OrdemServiço(int cod,boolean isPago, double valor, String progresso, String dataFx, String situacao, String observacao, Veiculo veiculo) {
+    public OrdemServico(int cod,String isPago, double valor, String progresso, String dataFx, String situacao, String observacao, Veiculo veiculo) {
         this.cod = new SimpleIntegerProperty(cod);
-        this.isPago = new SimpleBooleanProperty(isPago);
+        this.isPago = new SimpleStringProperty(isPago);
         this.valor = new SimpleDoubleProperty(valor);
         this.progresso = new SimpleStringProperty(progresso);
         this.dataFx = new SimpleStringProperty(dataFx);
@@ -55,11 +55,11 @@ public class OrdemServiço {
     
     
     
-    public boolean getIsPago() {
+    public String getIsPago() {
         return isPago.get();
     }
 
-    public void setIsPago(boolean isPago) {
+    public void setIsPago(String isPago) {
         this.isPago.set(isPago);
     }
 

@@ -36,7 +36,7 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonAction(ActionEvent event) {
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemCliente.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemVeiculo.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);
@@ -74,7 +74,7 @@ public class FXMLDocumentController implements Initializable {
         try {
             System.out.println("manda ele tomanocu");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemVeiculo.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemOrdem.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);

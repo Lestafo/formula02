@@ -46,7 +46,7 @@ public class ListagemVeiculoController implements Initializable {
         placa.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Placa"));
         cliente.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Clientenome"));
         System.out.println("ababababa");
-        tabela.getItems().addAll(VeiculoDAO.consultar());
+        //tabela.getItems().addAll(VeiculoDAO.consultar());
         
     }    
     

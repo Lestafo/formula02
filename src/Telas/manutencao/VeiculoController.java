@@ -36,7 +36,7 @@ public class VeiculoController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        clienteField.getItems().addAll(dao.ClienteDao.consultar());
+        clienteField.getItems().addAll(dao.ClienteDAO.consultar());
     }    
     
 }

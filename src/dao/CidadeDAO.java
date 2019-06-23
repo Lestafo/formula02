@@ -51,7 +51,7 @@ public class CidadeDAO {
             }
             return resultados;
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -69,7 +69,7 @@ public class CidadeDAO {
             }
             return ne;
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }

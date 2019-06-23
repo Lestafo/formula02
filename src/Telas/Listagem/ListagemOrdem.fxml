@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Telas.Listagem.ListagemOrdemController">
+   <children>
+      <TableView fx:id="tabela" prefHeight="218.0" prefWidth="580.0">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+         <columns>
+            <TableColumn fx:id="ordem" prefWidth="81.0" text="Veículo" />
+            <TableColumn fx:id="situacao" prefWidth="119.0" text="Situação" />
+            <TableColumn fx:id="progresso" prefWidth="127.0" text="Progresso" />
+            <TableColumn fx:id="data" prefWidth="90.0" text="Data" />
+            <TableColumn fx:id="valor" prefWidth="99.0" text="Valor" />
+            <TableColumn fx:id="pago" prefWidth="63.0" text="Pago" />
+            <TableColumn fx:id="pago1" prefWidth="63.0" />
+         </columns>
+      </TableView>
+      <Pane prefHeight="135.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="14.0" layoutY="44.0" text="Observação" />
+            <TextArea fx:id="observacao" editable="false" layoutX="85.0" layoutY="13.0" prefHeight="80.0" prefWidth="462.0" />
+         </children>
+      </Pane>
+      <HBox alignment="CENTER" prefHeight="118.0" prefWidth="600.0" spacing="195.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="67.0" text="Adicionar">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnAlterar" mnemonicParsing="false" prefHeight="57.0" prefWidth="52.0" text="Alterar">
+               <HBox.margin>
+                  <Insets left="-15.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnExcluir" mnemonicParsing="false" prefHeight="58.0" prefWidth="50.0" text="Excluir">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

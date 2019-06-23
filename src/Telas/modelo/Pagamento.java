@@ -18,9 +18,9 @@ public class Pagamento {
     private SimpleStringProperty datapag;
     private SimpleStringProperty dataVenc;
     private SimpleDoubleProperty valor;
-    private OrdemServiço ordemCod;
+    private OrdemServico ordemCod;
 
-    public Pagamento(int cod,String datapag, String dataVenc, double valor, OrdemServiço ordemCod) {
+    public Pagamento(int cod,String datapag, String dataVenc, double valor, OrdemServico ordemCod) {
         this.cod = new SimpleIntegerProperty(cod);
         this.datapag = new SimpleStringProperty(datapag);
         this.dataVenc = new SimpleStringProperty(dataVenc);
@@ -61,11 +61,11 @@ public class Pagamento {
         this.valor.set(valor);
     }
 
-    public OrdemServiço getOrdemCod() {
+    public OrdemServico getOrdemCod() {
         return ordemCod;
     }
 
-    public void setOrdemCod(OrdemServiço ordemCod) {
+    public void setOrdemCod(OrdemServico ordemCod) {
         this.ordemCod = ordemCod;
     }
     @Override

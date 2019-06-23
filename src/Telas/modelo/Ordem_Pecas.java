@@ -13,23 +13,23 @@ import javafx.beans.property.SimpleIntegerProperty;
  * @author Lest
  */
 public class Ordem_Pecas {
-    private OrdemServiço ordem;
+    private OrdemServico ordem;
     private Pecas pecas;
     private SimpleIntegerProperty quantidade;
     private SimpleDoubleProperty valor;
 
-    public Ordem_Pecas(OrdemServiço ordem, Pecas pecas, int quantidade, double valor) {
+    public Ordem_Pecas(OrdemServico ordem, Pecas pecas, int quantidade, double valor) {
         this.ordem = ordem;
         this.pecas = pecas;
         this.quantidade = new SimpleIntegerProperty(quantidade);
         this.valor = new SimpleDoubleProperty(valor);
     }
     
-    public OrdemServiço getOrdem() {
+    public OrdemServico getOrdem() {
         return ordem;
     }
 
-    public void setOrdem(OrdemServiço ordem) {
+    public void setOrdem(OrdemServico ordem) {
         this.ordem = ordem;
     }
 
