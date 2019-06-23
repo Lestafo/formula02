@@ -48,27 +48,14 @@ public class ListagemClienteController implements Initializable {
 //        Tabela.getColumns().addAll(nome,sobrenome);
         
         
-        final ObservableList<Pessoa> gados = FXCollections.observableArrayList(
-        new Pessoa("Jenny", "Casa do carai",(long)8675309, 1)
-        //new Pessoa("janos", "Humano"),
-//        new Pessoa("Pipizudo", "louco")
-        );
+        
 //        
         Nome.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Nome"));
         Endereco.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Endereco"));
         Telefone.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Telefone"));
         Cidade.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Cidade"));
         
-        Tabela.setItems(gados);
-//       ArrayList<Pessoa> arr = new ArrayList();
-//       arr.add(new Pessoa("Arr", "Err"));
-////      arr.add("Err");
-////        Pessoa pes = new Pessoa("asteristico", "asterástico");
-////        //Tabela.getSelectionModel().getSelectedItem();
-//        Tabela.getItems().add(new Pessoa("alevino", "maroto"));
-//        Tabela.getItems().add(new Pessoa("Aveztruz", "Arborícola"));
             Tabela.getItems().addAll(ClienteDao.consultar());
-//        //só precisa salvar como string mesmo n esquenta mano
 }    
     
 }

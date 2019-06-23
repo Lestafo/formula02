@@ -45,7 +45,7 @@ public class ClienteDao {
     }
     
     public static boolean alterarNome(int cod, String nome) {
-        String sql = "UPDATE cliente SET nome = ? WHERE numCadastro = ?";
+        String sql = "UPDATE cliente SET nome = ?, endereco = ?,telefone = ?, cidade = ? WHERE numCadastro = ?";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
             ps.setString(1, nome);

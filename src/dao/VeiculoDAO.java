@@ -109,13 +109,7 @@ public class VeiculoDAO {
     }
 
     public static void main(String[] args) {
-//        boolean resultad = inserir(1223,"Manatouras", "naasa do carailo", 1, 1);
-//        if (resultad) {
-//            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Erro!");
-//        }
-        //inserir(123,"asi","nasas",334,1);
+
     }
 }
 
