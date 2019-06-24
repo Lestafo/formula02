@@ -5,7 +5,7 @@
  */
 package Telas.Listagem;
 
-import Telas.modelo.Cidade;
+import Telas.modelo.Pagamento;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,8 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -28,28 +26,51 @@ import javafx.stage.Stage;
  *
  * @author Lest
  */
-public class ListagemCidadeController implements Initializable {
+public class ListagemPagamentoController implements Initializable {
 
     @FXML
-    private TableView<Cidade> tabela;
+    private TableView<Pagamento> tabela;
     @FXML
     private TableColumn codigo;
     @FXML
-    private TableColumn nome;
+    private TableColumn dataPag;
     @FXML
-    private Button btnAdicionar;
+    private TableColumn dataVenc;
+    @FXML
+    private TableColumn valor;
+    @FXML
+    private TableColumn ordemCod;
     @FXML
     private Button btnExcluir;
     @FXML
     private Button btnAlterar;
+
     /**
      * Initializes the controller class.
      */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        codigo.setCellValueFactory(new PropertyValueFactory<Pagamento,String>("Cod"));
+        dataPag.setCellValueFactory(new PropertyValueFactory<Pagamento,String>("Datapag"));
+        dataVenc.setCellValueFactory(new PropertyValueFactory<Pagamento,String>("DataVenc"));
+        valor.setCellValueFactory(new PropertyValueFactory<Pagamento,String>("Valor"));
+        ordemCod.setCellValueFactory(new PropertyValueFactory<Pagamento,String>("OrdemCod"));
+        tabela.getItems().addAll(dao.PagamentoDAO.consultar());
+    }    
+
     @FXML
-    public void adicionar(){
+    private void excluir(ActionEvent event) {
+           
+    
+        dao.PagamentoDAO.excluir(tabela.getSelectionModel().getSelectedItem().getCod());
+    
+    }
+
+    @FXML
+    private void adicionar(ActionEvent event) {
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/CidadeManutencao.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Pagamento.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);
@@ -62,25 +83,6 @@ public class ListagemCidadeController implements Initializable {
         } catch (IOException e) {
         
         }
-    }
-    @FXML
-    public void ref(){
-        tabela.refresh();
-        System.out.println("eu eamsnas");
-        tabela.getItems().clear();
-        tabela.getItems().addAll(dao.CidadeDAO.consultar());
-    }
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        codigo.setCellValueFactory(new PropertyValueFactory<Cidade,String>("Cod"));
-        nome.setCellValueFactory(new PropertyValueFactory<Cidade,String>("Nome"));
-        tabela.getItems().addAll(dao.CidadeDAO.consultar());
-        
-    }    
-
-    @FXML
-    private void excluir(ActionEvent event) {
-        dao.CidadeDAO.excluir(tabela.getSelectionModel().getSelectedItem().getCod());
     }
 
     @FXML

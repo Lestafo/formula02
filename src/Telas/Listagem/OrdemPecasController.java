@@ -5,9 +5,8 @@
  */
 package Telas.Listagem;
 
-
-import Telas.modelo.Veiculo;
-import dao.VeiculoDAO;
+import Telas.modelo.OrdemServico;
+import Telas.modelo.Ordem_Pecas;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,44 +27,54 @@ import javafx.stage.Stage;
  *
  * @author Lest
  */
-public class ListagemVeiculoController implements Initializable {
+public class OrdemPecasController implements Initializable {
 
     @FXML
-    private TableView<Telas.modelo.Veiculo> tabela;
+    private TableView<Ordem_Pecas> tabela;
     @FXML
-    private TableColumn modelo;
+    private TableColumn codigoOrdem;
     @FXML
-    private TableColumn tipo;
+    private TableColumn codigoPeca;
     @FXML
-    private TableColumn placa;
+    private TableColumn Valor;
     @FXML
-    private TableColumn cliente;
+    private TableColumn quantidade;
     @FXML
     private Button btnAlterar;
     @FXML
     private Button btnExcluir;
-    
-    @FXML
-    public void excluir(){
-        VeiculoDAO.excluir((tabela.getSelectionModel().getSelectedItem().getCod()));
-        System.out.println("mininim");
-    }
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        modelo.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Modelo"));
-        tipo.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Tipo"));
-        placa.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Placa"));
-        cliente.setCellValueFactory(new PropertyValueFactory<Veiculo,String>("Clientenome"));
-        System.out.println("ababababa");
-        tabela.getItems().addAll(VeiculoDAO.consultar());
-        
+        codigoOrdem.setCellValueFactory(new PropertyValueFactory<OrdemServico,String>("OrdemName"));
+        codigoPeca.setCellValueFactory(new PropertyValueFactory<OrdemServico,String>("Pecas"));
+        Valor.setCellValueFactory(new PropertyValueFactory<OrdemServico,String>("Valor"));
+        quantidade.setCellValueFactory(new PropertyValueFactory<OrdemServico,String>("Quantidade"));
+        tabela.getItems().addAll(dao.OrdemPecasDAO.consultar());
     }    
+
+    @FXML
+    private void habilitarBotao(MouseEvent event) {
+        if(tabela.getSelectionModel().getSelectedItem() != null){
+            btnExcluir.setDisable(false);
+            btnAlterar.setDisable(false);
+            
+        }
+    }
+
+    @FXML
+    private void excluir(ActionEvent event) {
+        dao.OrdemPecasDAO.excluir(tabela.getSelectionModel().getSelectedItem().getOrdem().getCod());
+    }
 
     @FXML
     private void adicionar(ActionEvent event) {
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Veiculo.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Ordem_de_Peças.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);
@@ -77,15 +86,6 @@ public class ListagemVeiculoController implements Initializable {
         stage.show();
         } catch (IOException e) {
         
-        }
-    }
-
-    @FXML
-    private void habilitarBotao(MouseEvent event) {
-        if(tabela.getSelectionModel().getSelectedItem() != null){
-            btnExcluir.setDisable(false);
-            btnAlterar.setDisable(false);
-            
         }
     }
     

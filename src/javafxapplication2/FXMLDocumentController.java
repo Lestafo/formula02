@@ -28,15 +28,10 @@ import javafx.stage.Stage;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
-    private Label label;
-    @FXML
-    private TableView tabela;
-    @FXML
     private void handleButtonAction(ActionEvent event) {
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemVeiculo.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemPecas.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);
@@ -50,12 +45,11 @@ public class FXMLDocumentController implements Initializable {
         //if selection not equals null then enable button
     }
     }
-    @FXML
     private void adicionarCliente(ActionEvent ev){
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Veiculo.fxml"));
-        
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/OrdemServico.fxml"));
+            System.out.println("ASASASASAS");
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);
@@ -69,12 +63,11 @@ public class FXMLDocumentController implements Initializable {
         
         }
     }
-    @FXML
     private void adicionarVeiculo(){
         try {
             System.out.println("manda ele tomanocu");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemOrdem.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemPagamento.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);
@@ -102,5 +95,271 @@ public class FXMLDocumentController implements Initializable {
 //        nome.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("nome"));
 //        sobrenome.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("sobrenome"));
     }    
+
+    @FXML
+    private void ListClien(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemCliente.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar Cliente");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void manClien(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/PaisManutencao.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Adicionar Cliente");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void listVeic(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemVeiculo.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar Veículo");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void manVeic(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Veiculo.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Adicionar Veiculo");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void listPec(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemPecas.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar Pecas");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void manPec(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Peças.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Adicionar Pecas");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void listOrd(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemOrdem.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar Ordem");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void manOrd(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/OrdemServico.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Adicionar Ordem");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void listOrdPec(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/OrdemPecas.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar ordem_Pecas");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void manOrdPEc(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Ordem_de_Peças.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Adicionar Ordem");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void listPag(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemPagamento.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar Pagamento");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void manPag(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Pagamento.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Adicionar Pagamentos");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void listCid(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/Listagem/ListagemCidade.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Listar Cidades");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
+
+    @FXML
+    private void manCid(ActionEvent event) {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/CidadeManutencao.fxml"));
+        /* 
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Adicionar Cidade");
+        stage.setScene(scene);
+        stage.show();
+        } catch (IOException e) {
+        
+        }
+    }
     
 }

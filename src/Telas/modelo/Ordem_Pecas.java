@@ -24,7 +24,9 @@ public class Ordem_Pecas {
         this.quantidade = new SimpleIntegerProperty(quantidade);
         this.valor = new SimpleDoubleProperty(valor);
     }
-    
+    public String getOrdemName(){
+        return Integer.toString(ordem.getCod());
+    }
     public OrdemServico getOrdem() {
         return ordem;
     }

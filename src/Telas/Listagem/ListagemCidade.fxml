@@ -8,7 +8,7 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#ref" prefHeight="501.0" prefWidth="472.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Telas.Listagem.ListagemCidadeController">
    <children>
-      <TableView fx:id="tabela" onKeyPressed="#ref" prefHeight="293.0" prefWidth="452.0">
+      <TableView fx:id="tabela" onMouseClicked="#habilitarBotao" prefHeight="293.0" prefWidth="452.0">
         <columns>
           <TableColumn fx:id="codigo" editable="false" prefWidth="85.0" text="Código" />
           <TableColumn fx:id="nome" editable="false" maxWidth="10000.0" prefWidth="366.0" text="Nome" />
@@ -19,8 +19,8 @@
       </TableView>
       <Button fx:id="btnAdicionar" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#adicionar" prefHeight="51.0" prefWidth="143.0" text="Adicionar" />
       <Button mnemonicParsing="false" onAction="#ref" text="Button" />
-      <Button fx:id="alterar" disable="true" mnemonicParsing="false" prefHeight="51.0" prefWidth="143.0" text="Alterar" />
-      <Button fx:id="excluir" disable="true" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" text="Excluir" />
+      <Button fx:id="btnAlterar" disable="true" mnemonicParsing="false" prefHeight="51.0" prefWidth="143.0" text="Alterar" />
+      <Button fx:id="btnExcluir" disable="true" mnemonicParsing="false" onAction="#excluir" prefHeight="48.0" prefWidth="143.0" text="Excluir" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

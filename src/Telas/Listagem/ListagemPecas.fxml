@@ -6,15 +6,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Telas.Listagem.ListagemClienteController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Telas.Listagem.ListagemPecasController">
    <children>
-      <TableView fx:id="Tabela" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#habilitarBotao" prefHeight="354.0" prefWidth="384.0" VBox.vgrow="ALWAYS">
-        <columns>
-          <TableColumn fx:id="Nome" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="105.0" text="Nome" />
-          <TableColumn fx:id="Telefone" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="83.0" text="Telefone" />
-            <TableColumn fx:id="Cidade" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="87.0" text="Cidade" />
-            <TableColumn fx:id="Endereco" maxWidth="500.0" minWidth="-1.0" prefWidth="108.0" text="Endereço" />
-        </columns>
+      <TableView fx:id="tabela" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#habilitarBotao" prefHeight="354.0" prefWidth="384.0" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="codigo" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="105.0" text="Codigo" />
+            <TableColumn fx:id="nome" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="149.0" text="Nome" />
+            <TableColumn fx:id="valor" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="130.0" text="Valor" />
+         </columns>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>

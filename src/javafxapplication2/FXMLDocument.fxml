@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
-    <children>
-        <Button fx:id="btnOpenNewWindow" layoutX="126" layoutY="90" onAction="#handleButtonAction" text="Click Me!" />
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button layoutX="126.0" layoutY="51.0" mnemonicParsing="false" onAction="#adicionarCliente" text="adicionar" />
-      <Button layoutX="104.0" layoutY="125.0" mnemonicParsing="false" onAction="#adicionarVeiculo" text="Adicionar Veículo" />
-    </children>
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="69.0" prefWidth="600.0" spacing="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#ListClien" text="Listagem Cliente" />
+            <Button mnemonicParsing="false" onAction="#manClien" text="Manutencao Cliente" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0" spacing="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#listVeic" text="Listagem Veiculo" />
+            <Button mnemonicParsing="false" onAction="#manVeic" text="MAnutencao Veiculo" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="64.0" prefWidth="600.0" spacing="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#listPec" text="Listagem Pecas" />
+            <Button mnemonicParsing="false" onAction="#manPec" text="Manutencao Pecas" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="84.0" prefWidth="600.0" spacing="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#listOrd" text="Listagem Ordem" />
+            <Button mnemonicParsing="false" onAction="#manOrd" text="Manutencao Ordem" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="73.0" prefWidth="600.0" spacing="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#listOrdPec" text="Listagem OrdemPecas" />
+            <Button mnemonicParsing="false" onAction="#manOrdPEc" text="Manutencao OrdemPecas" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="600.0" spacing="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#listPag" text="Listagem Pagamento" />
+            <Button mnemonicParsing="false" onAction="#manPag" text="Manutencao Pagamento" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="69.0" prefWidth="600.0" spacing="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#listCid" text="Listagem Cid" />
+            <Button mnemonicParsing="false" onAction="#manCid" text="Manutencao Cidade" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -5,15 +5,11 @@
  */
 package Telas.Listagem;
 
-import Telas.modelo.Pessoa;
-import dao.ClienteDAO;
+import Telas.modelo.OrdemServico;
+import Telas.modelo.Pecas;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,69 +26,59 @@ import javafx.stage.Stage;
  *
  * @author Lest
  */
-public class ListagemClienteController implements Initializable {
+public class ListagemPecasController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
-    
     @FXML
-    private TableView<Telas.modelo.Pessoa> Tabela;
+    private TableView<Pecas> tabela;
     @FXML
-    private TableColumn Nome;
+    private TableColumn codigo;
     @FXML
-    private TableColumn Cidade;
+    private TableColumn nome;
     @FXML
-    private TableColumn Endereco;
-    @FXML
-    private TableColumn Telefone;
-    @FXML
-    private Button btnExcluir;
+    private TableColumn valor;
     @FXML
     private Button btnAlterar;
     @FXML
+    private Button btnExcluir;
+    
+    
+    @FXML
     public void habilitarBotao(){
-        if(Tabela.getSelectionModel().getSelectedItem() != null){
+        if(tabela.getSelectionModel().getSelectedItem() != null){
             btnExcluir.setDisable(false);
             btnAlterar.setDisable(false);
             
         }
     }
-    @FXML
-    public void excluir(){
-        ClienteDAO.excluir(Tabela.getSelectionModel().getSelectedItem().getCod());
-    }
-    public void alterar(){
-        System.out.println("oi");
-    }
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-//        Tabela.getColumns().addAll(nome,sobrenome);
-        
-        
-        
-//        
-        Nome.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Nome"));
-        Endereco.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Endereco"));
-        Telefone.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Telefone"));
-        Cidade.setCellValueFactory(new PropertyValueFactory<Pessoa,String>("Cidade"));
-        
-            Tabela.getItems().addAll(ClienteDAO.consultar());
-}    
+        codigo.setCellValueFactory(new PropertyValueFactory<Pecas,String>("Cod"));
+        nome.setCellValueFactory(new PropertyValueFactory<Pecas,String>("Nome"));
+        valor.setCellValueFactory(new PropertyValueFactory<Pecas,String>("Valor"));
+        //data.setCellValueFactory(new PropertyValueFactory<Pecas,String>("DataFx"));[
+        tabela.getItems().addAll(dao.PecasDAO.consultar());
+    }    
+
+    @FXML
+    private void excluir(ActionEvent event) {
+        dao.PecasDAO.excluir(tabela.getSelectionModel().getSelectedItem().getCod());
+    }
 
     @FXML
     private void adicionar(ActionEvent event) {
         try {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/PaisManutencao.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/Telas/manutencao/Peças.fxml"));
         /* 
          * if "fx:controller" is not set in fxml
          * fxmlLoader.setController(NewWindowController);
          */
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
-        stage.setTitle("Adicionar Cliente");
+        stage.setTitle("Adicionar Peças");
         stage.setScene(scene);
         stage.show();
         } catch (IOException e) {
